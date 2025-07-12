@@ -2,224 +2,220 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact Us - Mohr Farms</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - Mohr Farms</title>
+  <link rel="stylesheet" href="styles.css">
   <style>
     body {
-      margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #fdf6f0;
-      color: #3e2c23;
+      margin: 0;
+      background-color: #fffaf4;
+      color: #333;
     }
 
     header {
-      background: linear-gradient(90deg, #6d4c41, #a1887f);
-      color: #fff7e6;
-      padding: 2.5em 1em;
+      background-color: #3e2723;
+      color: white;
+      padding: 1.5em;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.6em;
-    }
-
-    nav {
+    .navbar {
       background-color: #5d4037;
       display: flex;
-      justify-content: center;
-      gap: 1.8em;
-      padding: 1.2em;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em;
     }
 
-    nav a {
+    .nav-links {
+      display: flex;
+      gap: 1.2em;
+    }
+
+    .nav-links a {
       color: #fff3e0;
       text-decoration: none;
       font-weight: bold;
-      font-size: 1.1em;
       transition: color 0.3s;
     }
 
-    nav a:hover {
+    .nav-links a:hover {
       color: #ffcc80;
     }
 
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #5d4037;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        padding: 1em 0;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
     main {
-      max-width: 900px;
-      margin: 2em auto;
       padding: 2em;
-      background-color: #fffaf4;
-      border-radius: 12px;
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      margin: auto;
     }
 
     h2 {
       text-align: center;
-      font-size: 2.2em;
-      color: #6d4c41;
-      margin-bottom: 1.5em;
-    }
-
-    .contact-info {
-      margin-bottom: 2em;
-      text-align: center;
-      font-size: 1.1em;
-      line-height: 1.6;
-    }
-
-    .contact-info strong {
-      display: block;
-      margin-bottom: 0.3em;
-      font-size: 1.15em;
+      color: #5d4037;
+      margin-bottom: 1em;
     }
 
     form {
       display: flex;
       flex-direction: column;
-      gap: 1.2em;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
+      gap: 1em;
+      background: #fff;
+      padding: 2em;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.07);
     }
 
     label {
       font-weight: bold;
       margin-bottom: 0.5em;
+      color: #3e2723;
     }
 
     input, textarea {
       padding: 0.8em;
-      font-size: 1em;
-      border-radius: 6px;
       border: 1px solid #ccc;
-      background-color: #fffdf9;
-      width: 100%;
-      box-sizing: border-box;
+      border-radius: 6px;
+      font-size: 1em;
+      resize: vertical;
     }
 
     textarea {
-      min-height: 150px;
-      resize: vertical;
+      height: 150px;
     }
 
     button {
       background-color: #6d4c41;
       color: white;
-      padding: 0.8em;
-      font-size: 1.1em;
       border: none;
+      padding: 0.8em 1.2em;
       border-radius: 6px;
+      font-size: 1em;
       cursor: pointer;
-      transition: background-color 0.3s ease;
-      width: 100%;
-      max-width: 300px;
-      align-self: center;
+      transition: background-color 0.3s;
+      width: fit-content;
     }
 
     button:hover {
       background-color: #8d6e63;
     }
 
-    .map {
-      margin-top: 3em;
-      text-align: center;
-    }
-
-    .map img {
-      width: 100%;
-      max-width: 700px;
+    .contact-info {
+      margin-top: 2em;
+      padding: 1em;
+      background-color: #fbe9e7;
       border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    .btn-home {
-      display: block;
-      width: 180px;
-      margin: 3em auto 0 auto;
-      background-color: #7c5e36;
-      color: #fff7e6;
-      text-align: center;
-      padding: 0.7em;
-      border-radius: 25px;
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 1.1em;
-      box-shadow: 0 6px 12px rgba(124, 94, 54, 0.35);
-      transition: background-color 0.3s ease;
-    }
-
-    .btn-home:hover {
-      background-color: #c5a880;
-      color: #3e2723;
+    .contact-info p {
+      margin: 0.3em 0;
     }
 
     footer {
       text-align: center;
-      padding: 1.2em;
+      padding: 1em;
       background-color: #efebe9;
-      color: #4a3c31;
-      font-weight: 600;
-      margin-top: 3em;
+      margin-top: 2em;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Mohr Farms</h1>
+    <h1>Contact Us</h1>
     <p>We'd Love to Hear From You</p>
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="services.html">Services</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="testimonials.html">Testimonials</a>
-    <a href="contact.html" style="color:#ffcc80;">Contact</a>
-  </nav>
+  <div class="navbar">
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
 
   <main>
-    <h2>Contact Mohr Farms</h2>
-    <div class="contact-info">
-      <strong>Address:</strong>
-      123 Country Road, Rural Iowa, IA 50000<br>
-      <strong>Phone:</strong> (555) 123-4567<br>
-      <strong>Email:</strong> info@mohrfarms.com
-    </div>
+    <h2>Send Us a Message</h2>
 
     <form action="#" method="POST">
-      <div class="form-group">
+      <div>
         <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" required />
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
       </div>
 
-      <div class="form-group">
+      <div>
         <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" required />
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
       </div>
 
-      <div class="form-group">
+      <div>
         <label for="message">Your Message</label>
-        <textarea id="message" name="message" required></textarea>
+        <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
       </div>
 
-      <button type="submit">Send Message</button>
+      <button type="submit">Submit</button>
     </form>
 
-    <div class="map">
-      <h3>Find Us Here:</h3>
-      <img src="images/map-placeholder.jpg" alt="Map location of Mohr Farms">
+    <div class="contact-info">
+      <h3>Other Ways to Reach Us</h3>
+      <p><strong>Phone:</strong> (515) 555-9876</p>
+      <p><strong>Email:</strong> info@mohrfarms.com</p>
+      <p><strong>Address:</strong> 101 Mohr Lane, Prairie Hill, IA 50125</p>
+      <p><strong>Hours:</strong> Mon–Fri 8am–6pm</p>
     </div>
-
-    <a href="index.html" class="btn-home">Back to Home</a>
   </main>
 
   <footer>
     <p>&copy; 2025 Mohr Farms. All rights reserved.</p>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navLinks');
+      nav.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>

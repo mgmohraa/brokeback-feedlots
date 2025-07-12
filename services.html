@@ -2,205 +2,204 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Services - Mohr Farms</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Services - Mohr Farms</title>
+  <link rel="stylesheet" href="styles.css">
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f1ea;
-      color: #4a3c31;
       margin: 0;
-      padding: 0;
+      background-color: #fafafa;
+      color: #333;
     }
 
     header {
-      background: linear-gradient(90deg, #795548, #a1887f);
-      color: #fff7e6;
-      padding: 2.5em 1em;
+      background-color: #3e2723;
+      color: white;
+      padding: 1.5em;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(124, 94, 54, 0.7);
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 3em;
-      letter-spacing: 2px;
-      text-shadow: 1px 1px 3px #3e2723;
-    }
-
-    nav {
+    .navbar {
       background-color: #5d4037;
       display: flex;
-      justify-content: center;
-      gap: 1.8em;
-      padding: 1.2em;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em;
     }
 
-    nav a {
+    .nav-links {
+      display: flex;
+      gap: 1.2em;
+    }
+
+    .nav-links a {
       color: #fff3e0;
       text-decoration: none;
       font-weight: bold;
-      font-size: 1.1em;
-      transition: color 0.3s ease;
+      transition: color 0.3s;
     }
 
-    nav a:hover {
+    .nav-links a:hover {
       color: #ffcc80;
     }
 
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #5d4037;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        padding: 1em 0;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
     main {
+      padding: 2em;
       max-width: 1000px;
-      margin: 2em auto;
-      padding: 0 1.2em;
+      margin: auto;
     }
 
     h2 {
-      font-size: 2.4em;
+      color: #5d4037;
       text-align: center;
-      color: #6d4c41;
-      margin-bottom: 0.5em;
+      margin-bottom: 1em;
     }
 
-    .intro {
-      text-align: center;
-      font-size: 1.15em;
-      max-width: 700px;
-      margin: 0 auto 2em;
-      color: #5d4037cc;
-    }
-
-    .services-grid {
-      display: flex;
-      flex-wrap: wrap;
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2em;
-      justify-content: center;
     }
 
     .service-card {
-      background-color: #fff9f1;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(124, 94, 54, 0.2);
-      padding: 2em;
-      width: 300px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: center;
+      background-color: white;
+      padding: 1.5em;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
     }
 
     .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 25px rgba(124, 94, 54, 0.4);
+      transform: translateY(-5px);
     }
 
     .service-card img {
-      width: 60px;
-      height: 60px;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
       margin-bottom: 1em;
     }
 
     .service-card h3 {
-      margin: 0.4em 0;
-      font-size: 1.4em;
-      color: #5d4037;
+      color: #6d4c41;
+      margin-top: 0;
     }
 
     .service-card p {
-      font-size: 1em;
-      color: #5d4037b0;
       line-height: 1.5;
-    }
-
-    .btn-home {
-      display: block;
-      width: 180px;
-      margin: 3em auto 0 auto;
-      background-color: #7c5e36;
-      color: #fff7e6;
-      text-align: center;
-      padding: 0.7em;
-      border-radius: 25px;
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 1.1em;
-      box-shadow: 0 6px 12px rgba(124, 94, 54, 0.35);
-      transition: background-color 0.3s ease;
-    }
-
-    .btn-home:hover {
-      background-color: #c5a880;
-      color: #3e2723;
     }
 
     footer {
       text-align: center;
-      padding: 1.2em;
+      padding: 1em;
       background-color: #efebe9;
-      color: #4a3c31;
-      font-weight: 600;
-    }
-
-    @media (max-width: 768px) {
-      .services-grid {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .service-card {
-        width: 90%;
-      }
+      margin-top: 2em;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Mohr Farms</h1>
-    <p>Our Services</p>
+    <h1>Our Services</h1>
+    <p>What We Offer at Mohr Farms</p>
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="services.html" style="color:#ffcc80;">Services</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="testimonials.html">Testimonials</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <div class="navbar">
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
 
   <main>
-    <h2>What We Offer</h2>
-    <p class="intro">At Mohr Farms, we offer a variety of services built on generations of experience and a deep respect for the land and livestock. We proudly serve our community with premium cattle and friendly service.</p>
-
-    <section class="services-grid">
+    <h2>Dedicated to Quality and Community</h2>
+    <div class="service-grid">
       <div class="service-card">
-        <img src="images/cow-icon.png" alt="Cattle Icon">
-        <h3>Premium Angus Beef</h3>
-        <p>We raise top-quality, locally grown Angus beef using sustainable practices. Available in custom orders or bulk packages.</p>
+        <img src="images/beef-sales.jpg" alt="Fresh beef cuts">
+        <h3>Locally Raised Angus Beef</h3>
+        <p>We specialize in premium, locally raised Angus beef. Our cattle are pasture-raised and grain-finished, ensuring the best flavor and tenderness. Custom orders available upon request.</p>
       </div>
 
       <div class="service-card">
-        <img src="images/farm-icon.png" alt="Farm Tours Icon">
-        <h3>Farm Tours</h3>
-        <p>Experience Iowa farm life first-hand. Tour the barns, meet our cattle, and enjoy the fresh country air.</p>
+        <img src="images/cattle-care.jpg" alt="Cattle in field">
+        <h3>Livestock Care & Breeding</h3>
+        <p>With decades of experience, we provide responsible livestock care and breeding services. Our herd genetics are carefully managed to produce strong, healthy cattle year-round.</p>
       </div>
 
       <div class="service-card">
-        <img src="images/tractor-icon.png" alt="Custom Work Icon">
-        <h3>Custom Farming Work</h3>
-        <p>We offer equipment and labor for custom baling, seeding, and hay work for neighboring farms in the region.</p>
+        <img src="images/farm-tours.jpg" alt="Family tour at farm">
+        <h3>Farm Tours & Education</h3>
+        <p>We welcome schools, groups, and families for educational tours. Learn about cattle farming, sustainability, and Iowa agriculture first-hand with a walk around our operation.</p>
       </div>
 
       <div class="service-card">
-        <img src="images/family-icon.png" alt="Family Education Icon">
-        <h3>Family Education</h3>
-        <p>We host small events to educate local families and youth on agriculture, sustainability, and raising livestock responsibly.</p>
+        <img src="images/custom-orders.jpg" alt="Meat packaging">
+        <h3>Custom Beef Orders</h3>
+        <p>Want a quarter, half, or whole beef processed your way? We partner with local butchers to offer flexible custom orders. Pickup or local delivery available.</p>
       </div>
-    </section>
 
-    <a href="index.html" class="btn-home">Back to Home</a>
+      <div class="service-card">
+        <img src="images/community.jpg" alt="Community event at farm">
+        <h3>Community Events</h3>
+        <p>We believe in giving back. Join us for annual open houses, charity events, and seasonal gatherings. Mohr Farms is more than a farm—it's a community hub.</p>
+      </div>
+    </div>
   </main>
 
   <footer>
     <p>&copy; 2025 Mohr Farms. All rights reserved.</p>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navLinks');
+      nav.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>

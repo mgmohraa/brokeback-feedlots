@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mohr Farms</title>
   <link rel="stylesheet" href="styles.css">
   <style>
@@ -26,23 +26,64 @@
       text-align: center;
     }
 
-    nav {
+    /* Navigation styles */
+    .navbar {
       background-color: #5d4037;
       display: flex;
-      justify-content: center;
-      gap: 1.5em;
+      justify-content: space-between;
+      align-items: center;
       padding: 1em;
     }
 
-    nav a {
+    .nav-links {
+      display: flex;
+      gap: 1.2em;
+    }
+
+    .nav-links a {
       color: #fff3e0;
       text-decoration: none;
       font-weight: bold;
       transition: color 0.3s;
     }
 
-    nav a:hover {
+    .nav-links a:hover {
       color: #ffcc80;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #5d4037;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        padding: 1em 0;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
     }
 
     main {
@@ -80,18 +121,15 @@
       margin-top: 2em;
     }
 
-    .btn-home {
-      display: inline-block;
-      margin-top: 2em;
-      background-color: #6d4c41;
-      color: white;
-      padding: 0.6em 1.2em;
-      border-radius: 6px;
-      text-decoration: none;
-    }
+    @media (max-width: 600px) {
+      main {
+        padding: 1em;
+      }
 
-    .btn-home:hover {
-      background-color: #8d6e63;
+      .gallery img {
+        width: 100%;
+        height: auto;
+      }
     }
   </style>
 </head>
@@ -101,14 +139,21 @@
     <p>Family-Run Cattle Operation in the Heart of Iowa</p>
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="services.html">Services</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="testimonials.html">Testimonials</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <div class="navbar">
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
 
   <main>
     <img src="images/farm1.jpg" alt="Main farm view" class="hero-image">
@@ -122,10 +167,22 @@
       <li>Locally raised, high-quality Angus beef</li>
     </ul>
 
+    <div class="gallery">
+      <img src="images/farm2.jpg" alt="Cattle in pasture">
+      <img src="images/farm3.jpg" alt="Larry on the tractor">
+      <img src="images/farm4.jpg" alt="Chris and Joe in the barn">
+    </div>
   </main>
 
   <footer>
     <p>&copy; 2025 Mohr Farms. All rights reserved.</p>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navLinks');
+      nav.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
