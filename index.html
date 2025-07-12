@@ -1,65 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Brokeback Feedlots - Home</title>
-  <link href="styles.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohr Farms</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+      color: #333;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    header {
+      background-color: #3e2723;
+      color: white;
+      padding: 1.5em;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #5d4037;
+      display: flex;
+      justify-content: center;
+      gap: 1.5em;
+      padding: 1em;
+    }
+
+    nav a {
+      color: #fff3e0;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffcc80;
+    }
+
+    main {
+      padding: 2em;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 1em;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .gallery img {
+      width: 250px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1em;
+      background-color: #efebe9;
+      margin-top: 2em;
+    }
+
+    .btn-home {
+      display: inline-block;
+      margin-top: 2em;
+      background-color: #6d4c41;
+      color: white;
+      padding: 0.6em 1.2em;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    .btn-home:hover {
+      background-color: #8d6e63;
+    }
+  </style>
 </head>
 <body>
-  <div class="overlay">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">Brokeback Feedlots</a>
-        <div>
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row gap-3">
-            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-            <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-            <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+  <header>
+    <h1>Mohr Farms</h1>
+    <p>Family-Run Cattle Operation in the Heart of Iowa</p>
+  </header>
 
-    <div class="container text-white">
-      <header class="text-center mb-5">
-        <h1>Welcome to Brokeback Feedlots</h1>
-        <p class="lead">Premium Cattle Ranching Since 1987 — Based in Iowa</p>
-      </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="testimonials.html">Testimonials</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-      <section>
-        <h2>Meet the Team</h2>
-        <div class="row g-4">
-          <div class="col-md-4">
-            <div class="card contact-card p-3">
-              <h4>Larry Withmohr</h4>
-              <p>Founder & Ranch Elder</p>
-              <p>Email: larry@brokebackfeedlots.com</p>
-              <p>Phone: (555) 123-4567</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card contact-card p-3">
-              <h4>Joe Withmohr</h4>
-              <p>Operations Manager</p>
-              <p>Email: joe@brokebackfeedlots.com</p>
-              <p>Phone: (555) 987-6543</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card contact-card p-3">
-              <h4>Chris Withmohr</h4>
-              <p>Assistant Manager</p>
-              <p>Email: chris@brokebackfeedlots.com</p>
-              <p>Phone: (555) 456-7890</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  </div>
+  <main>
+    <img src="images/farm1.jpg" alt="Main farm view" class="hero-image">
+    <h2>Welcome to Mohr Farms</h2>
+    <p>Located in the scenic countryside of Iowa, Mohr Farms is a proud family-owned cattle operation founded by Larry Mohr. With decades of dedication to responsible livestock farming, Mohr Farms continues to grow through the hard work of Larry and his sons, Joe and Chris. Whether you're a local neighbor or a curious visitor, you're invited to learn more about our family, services, and sustainable farming values.</p>
+
+    <h3>What Makes Us Different?</h3>
+    <ul>
+      <li>Multi-generational knowledge and care</li>
+      <li>Humane and sustainable cattle practices</li>
+      <li>Locally raised, high-quality Angus beef</li>
+    </ul>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mohr Farms. All rights reserved.</p>
+  </footer>
 </body>
 </html>
